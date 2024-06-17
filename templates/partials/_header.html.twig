@@ -1,13 +1,13 @@
 <header>
 	<nav class="navbar d-flex justify-content-between">
 		<div class="d-flex px-2 align-items-center">
-			<a href="{{ path('home.index') }}"><img class="logo" src="../images/logovynile.png" alt="Logo"></a>
+			<a href="{{ path('home.index') }}"><img class="logo" src="{{ asset('/images/logovynile.png') }}" alt="Logo"></a>
 			<a class="nav-link active text-white mx-2" href="{{ path('home.index') }}">Accueil</a>
 			<a class="nav-link active text-white mx-2" href="{{ path('app_register') }}">Inscription</a>
 			<a class="nav-link active mx-2 text-white" id="deco3" href="{{ path('app_login') }}">Connexion</a>
 			<a class="nav-link active text-white mx-2" href="{{ path('app_disque_index') }}">Produits</a>
 			<a class="nav-link active text-white mx-2" href="{{ path('app_artiste_index') }}">Artistes</a>
-			<a class="nav-link active text-white mx-2" href="{{ path('cart_index') }}"><img src="../images/cart-shopping-svgrepo-com.svg" alt="panier" class="cart filterInvert" id="panier"></a>
+			<a class="nav-link active text-white mx-2" href="{{ path('cart_index') }}"><img src="{{ asset('/images/cart-shopping-svgrepo-com.svg') }}" alt="panier" class="cart filterInvert" id="panier"></a>
 		</div>
 		<div class="d-flex px-2 align-items-center">
 			{% if app.user %}
