@@ -32,6 +32,9 @@ class Disque
     #[ORM\JoinColumn(nullable: false)]
     private ?artiste $artiste = null;
 
+    #[ORM\Column]
+    private ?int $quantity = null;
+
     public function __construct()
     {
         
@@ -98,6 +101,18 @@ class Disque
     public function setArtiste(?Artiste $artiste): static
     {
         $this->artiste = $artiste;
+
+        return $this;
+    }
+
+    public function getQuantity(): ?int
+    {
+        return $this->quantity;
+    }
+
+    public function setQuantity(int $quantity): static
+    {
+        $this->quantity = $quantity;
 
         return $this;
     }

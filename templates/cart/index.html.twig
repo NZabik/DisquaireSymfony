@@ -1,0 +1,77 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Panier
+{% endblock %}
+
+{% block body %}
+	<div class="container text-center py-5">
+		<h1 class="text-center text-dark fs-1">Panier</h1>
+	</div>
+	<div class="container mt-2">
+		{% for message in app.flashes('error') %}
+			<div class="alert alert-danger">{{ message }}</div>
+		{% endfor %}
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-success">{{ message }}</div>
+        {% endfor %}
+		<table class="table mt-2">
+			{% if total != 0 %}
+				<thead>
+					<tr>
+						<th colspan="2" class="text-center text-dark">Produit</th>
+						<th class="text-center text-dark">Prix</th>
+						<th class="text-center text-dark">Quantité</th>
+						<th class="text-center text-dark">Sous-total</th>
+						<th class="text-center text-dark">Supprimer</th>
+					</tr>
+				</thead>
+			{% endif %}
+			<tbody>
+				{% for element in data %}
+					<tr>
+						<td class="text-center"><img src="{{asset('/images/disques/'~ element.product.image) }}" class="object-fit-cover" style="width:50px" id="imgCard" alt="..."></td>
+						<td class="text-center align-middle">{{element.product.titre}}</td>
+						<td class="text-center align-middle">{{element.product.prix}}
+							€</td>
+						<td class="text-center align-middle">
+						<a href="{{ path('cart_remove', {'id': element.product.id}) }}" class="btn btn-sm btn-outline-danger me-1">-</a>
+						{{element.quantity}}
+						<a href="{{ path('cart_add', {'id': element.product.id}) }}" class="btn btn-sm btn-outline-success ms-1">+</a>
+						</td>
+						<td class="text-center text-primary align-middle">{{element.quantity * element.product.prix}}
+							€</td>
+						<td class="text-center align-middle">
+							<a href="{{ path('cart_delete', {'id': element.product.id}) }}" class="btn"><img src="{{asset('/images/cross-svgrepo-com.svg') }}" style="width:20px"></a>
+						</td>
+					</tr>
+				{% else %}
+					<tr>
+						<td colspan="6" class="text-center align-middle fs-1">Votre panier est vide</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+			<tfoot>
+				
+					{% if total != 0 %}
+						<td colspan="3" class="text-center  fs-3 align-middle">Total du panier:</td>
+						<td colspan="3" class="text-center text-primary fs-3 align-middle">{{total}}
+							€</td>
+						
+					
+				
+				</tfoot>
+				</table>
+				<table class="table">
+				
+				<td class="text-center d-flex justify-content-start align-middle">
+							<a href="{{ path('cart_empty') }}" class="btn btn-danger btn-medium me-2  btn-rounded-none">Vider le panier</a>
+							<a href="{{ path('app_disque_index') }}" class="btn btn-primary btn-medium me-2  btn-rounded-none">Retour aux produits</a>
+
+						</td>
+						
+				
+			
+			{% endif %}
+		</table>
+	</div>
+{% endblock %}

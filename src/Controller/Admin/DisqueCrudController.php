@@ -8,6 +8,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
@@ -26,6 +27,7 @@ class DisqueCrudController extends AbstractCrudController
             TextField::new('titre'),
             AssociationField::new('artiste'),
             TextEditorField::new('description'),
+            IntegerField::new('quantity'),
             NumberField::new('prix'),
             ImageField::new('image')
                 ->setBasePath('images/disques/')

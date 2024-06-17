@@ -27,19 +27,28 @@
 								</p>
 								<p class="text-secondary">{{ disque.description }}</p>
 							</div>
-							<div class="card-text">
-								<p class="text-black">Prix:
-								</p>
-								<div class="d-flex">
-									<p class="text-secondary" id="productPrice1">{{ disque.prix }}</p>
-									<p class="text-secondary ms-1">€</p>
-								</div>
+							<div class="card-text d-flex">
+								<p class="text-black me-1">Quantité disponible:</p>
+								<p class="text-secondary" id="productPrice1">{{ disque.quantity }}</p>
 							</div>
-							<div class="card-text">
-                            {% if app.user %}
-                                {# <a class="btn btn-success" href="{{ path('app_panier_add', {'id': disque.id}) }}" id="product1">Ajouter au panier</a> #}
-                            {% endif %}
-								<a class="btn btn-primary" href="{{ path('app_disque_show', {'id': disque.id}) }}">Détails</a>
+							<div class="card-text d-flex">
+								<p class="text-black me-1">Prix:</p>
+								<p class="text-secondary" id="productPrice1">{{ disque.prix }}</p>
+								<p class="text-secondary ms-1">€</p>
+
+							</div>
+							<div class="card-text d-flex">
+								{% if app.user %}
+									{% if disque.quantity > 0 %}
+										<form action="{{ path('cart_add', {'id': disque.id}) }}" method="post">
+											<input class="border" type="number" name="quantity" min="1" max="{{ disque.quantity }}" value="1">
+											<button type="submit" class="btn btn-success">Ajouter au panier</button>
+										</form>
+									{% else %}
+										<p class="text-danger ">Epuisé !</p>
+									{% endif %}
+								{% endif %}
+								<a class="btn btn-primary ms-2" href="{{ path('app_disque_show', {'id': disque.id}) }}">Détails</a>
 							</div>
 						</div>
 					</div>
