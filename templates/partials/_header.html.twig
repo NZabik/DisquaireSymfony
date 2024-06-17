@@ -11,6 +11,8 @@
 		</div>
 		<div class="d-flex px-2 align-items-center">
 			{% if app.user %}
+				<a class="nav-link active text-white mx-2" href="{{path('app_user_show', {id: app.user.id})}}">Compte</a>
+				<a class="nav-link active text-white mx-2" href="{{ path('app_orders_show') }}">Commandes</a>
 				<a class="nav-link active text-white mx-2" id="deco" href="{{ path('app_logout') }}">Se déconnecter</a>
 			{% endif %}
 			{% if is_granted('ROLE_ADMIN') %}
@@ -24,7 +26,6 @@
 					{{ app.user.prenom }}</div>
 				<div class="text-white">{{ app.user.email }}</div>
 			{% endif %}
-			?>
 		</div>
 	</nav>
 </header>
