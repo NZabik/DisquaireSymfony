@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	{{ disque.titre }}
+{% endblock %}
+
+{% block body %}
+	<div class="container text-center py-5">
+		<h1>{{ disque.titre }}</h1>
+	</div>
+	<div class="container">
+
+		<table class="table">
+			<tbody>
+				<tr>
+					<th>Titre</th>
+					<td>{{ disque.titre }}</td>
+				</tr>
+				<tr>
+					<th>Description</th>
+					<td>{{ disque.description }}</td>
+				</tr>
+				<tr>
+					<th>Prix</th>
+					<td>{{ disque.prix }}</td>
+				</tr>
+				<tr>
+					<th>Image</th>
+					<td><img class="img-fluid" src="{{ asset('images/disques/' ~ disque.image) }}" alt="{{ disque.titre }}"></td>
+				</tr>
+			</tbody>
+		</table>
+
+		<a class="btn btn-primary mb-4" href="{{ path('app_disque_index') }}">Retour à la liste</a>
+	</div>
+
+{% endblock %}

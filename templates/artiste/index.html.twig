@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Artiste index{% endblock %}
+
+{% block body %}
+<div class="container text-center py-5">
+    <h1>Artistes</h1>
+</div>
+<div class="container">
+    <table class="table border table-striped">
+        <thead>
+            <tr>
+                <th class="border text-center">Id</th>
+                <th class="border text-center">Nom</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for artiste in artistes %}
+            <tr>
+                <td class="border align-middle text-center">{{ artiste.id }}</td>
+                <td class="border align-middle text-center">{{ artiste.nom }}</td>
+            </tr>
+        {% else %}
+            <tr>
+                <td class="border text-center" colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

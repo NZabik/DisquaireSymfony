@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Produits
+{% endblock %}
+
+{% block body %}
+	<div class="container text-center py-5">
+		<h1>Produits</h1>
+	</div>
+	<div class="container">
+		{% for disque in disques %}
+			<div class="card mb-4">
+				<div class="row g-0">
+					<div class="col-md-4 d-flex justify-content-center p-3">
+						<img class="imgDisque" src="{{ asset('images/disques/' ~ disque.image) }}" alt="{{ disque.titre }}">
+					</div>
+					<div class="col">
+						<div class="card-body">
+							<h3 class="card-title" id="productTitle1">{{ disque.titre }}</h3>
+							<div class="card-text">
+								<p class="text-black">Auteur:
+								</p>
+								<p class="text-secondary">Billie Eilish</p>
+							</div>
+							<div class="card-text">
+								<p class="text-black">Description:
+								</p>
+								<p class="text-secondary">{{ disque.description }}</p>
+							</div>
+							<div class="card-text">
+								<p class="text-black">Prix:
+								</p>
+								<div class="d-flex">
+									<p class="text-secondary" id="productPrice1">{{ disque.prix }}</p>
+									<p class="text-secondary ms-1">€</p>
+								</div>
+							</div>
+							<div class="card-text">
+                            {% if app.user %}
+                                {# <a class="btn btn-success" href="{{ path('app_panier_add', {'id': disque.id}) }}" id="product1">Ajouter au panier</a> #}
+                            {% endif %}
+								<a class="btn btn-primary" href="{{ path('app_disque_show', {'id': disque.id}) }}">Détails</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+{% endblock %}

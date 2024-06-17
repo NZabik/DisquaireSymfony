@@ -1,0 +1,68 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url(/Images/logovynile.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+}
+header{
+    background-color: #333;
+    padding: 10px;
+    text-align: center;
+}
+.logo{
+    height: 100px;
+}
+.cart{
+    height: 20px;
+}
+.filterInvert{
+    filter: invert(1);
+}
+.filterGrey{
+    filter: invert(1) brightness(50%);
+}
+#description{
+    background: rgba( 255, 255, 255, 0.55 );
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.514);
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.18);
+}
+.error{
+    color: red;
+}
+.error2{
+    border-color: red;
+    background-color: rgba(255, 0, 0, 0.2);
+}
+.logo{
+    height: 100px;
+}
+#loginForm{
+    background: rgba( 255, 255, 255, 0.55 );
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.514);
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.18);
+}
+#registerForm{
+    background: rgba( 255, 255, 255, 0.55 );
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.514);
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.18);
+}
+.hidden{
+    display: none;
+}
+.imgDisque{
+    object-fit: contain;
+    width: 100%;
+}
