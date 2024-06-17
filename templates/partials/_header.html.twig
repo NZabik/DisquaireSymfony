@@ -1,8 +1,8 @@
 <header>
 	<nav class="navbar d-flex justify-content-between">
 		<div class="d-flex px-2 align-items-center">
-			<a href="../index.php"><img class="logo" src="../images/logovynile.png" alt="Logo"></a>
-			<a class="nav-link active text-white mx-2" href="../index.php">Accueil</a>
+			<a href="{{ path('home.index') }}"><img class="logo" src="../images/logovynile.png" alt="Logo"></a>
+			<a class="nav-link active text-white mx-2" href="{{ path('home.index') }}">Accueil</a>
 			<a class="nav-link active text-white mx-2" href="{{ path('app_register') }}">Inscription</a>
 			<a class="nav-link active mx-2 text-white" id="deco3" href="{{ path('app_login') }}">Connexion</a>
 			<a class="nav-link active text-white mx-2" href="{{ path('app_disque_index') }}">Produits</a>
@@ -24,7 +24,6 @@
 				<div class="text-white">Bonjour
 					{{ app.user.nom }}
 					{{ app.user.prenom }}</div>
-				<div class="text-white">{{ app.user.email }}</div>
 			{% endif %}
 		</div>
 	</nav>
