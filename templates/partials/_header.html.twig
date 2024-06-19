@@ -3,8 +3,7 @@
 		<div class="d-flex px-2 align-items-center">
 			<a href="{{ path('home.index') }}"><img class="logo" src="{{ asset('/images/logovynile.png') }}" alt="Logo"></a>
 			<a class="nav-link active text-white mx-2" href="{{ path('home.index') }}">Accueil</a>
-			<a class="nav-link active text-white mx-2" href="{{ path('app_register') }}">Inscription</a>
-			<a class="nav-link active mx-2 text-white" id="deco3" href="{{ path('app_login') }}">Connexion</a>
+
 			<a class="nav-link active text-white mx-2" href="{{ path('app_disque_index') }}">Produits</a>
 			<a class="nav-link active text-white mx-2" href="{{ path('app_artiste_index') }}">Artistes</a>
 			<a class="nav-link active text-white mx-2" href="{{ path('cart_index') }}"><img src="{{ asset('/images/cart-shopping-svgrepo-com.svg') }}" alt="panier" class="cart filterInvert" id="panier"></a>
@@ -12,8 +11,9 @@
 		<div class="d-flex px-2 align-items-center">
 			{% if app.user %}
 				<div class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle text-white mx-2" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-						Compte
+					<a class="nav-link dropdown-toggle text-white mx-2 no-arrow" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						<img src="{{ asset('/images/user-alt-1-svgrepo-com.svg') }}" alt="panier" class="cart filterInvert">
+						<div>{{ app.user.prenom }}</div>
 					</a>
 					<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 						<li>
@@ -32,6 +32,9 @@
 						{% endif %}
 					</ul>
 				</div>
+			{% else %}
+				<a class="nav-link active text-white mx-2" href="{{ path('app_register') }}">Inscription</a>
+				<a class="nav-link active text-white mx-2" href="{{ path('app_login') }}">Connexion</a>
 			{% endif %}
 
 		</div>
